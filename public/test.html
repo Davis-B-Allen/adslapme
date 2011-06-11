@@ -1,0 +1,36 @@
+ <script type="text/javascript">
+    var _featherLoaded = false;
+
+    Feather_Theme = 'bluesky';
+    Feather_EditOptions = 'all';
+    Feather_OpenType = 'inject';
+    Feather_CropSizes = '320x240,640x480,800x600,1280x1024';
+
+	Feather_Stickers =
+	[
+		  			["http://www.emoticonswallpapers.com/avatar/logos/Doritos.gif", "http://www.emoticonswallpapers.com/avatar/logos/Doritos.gif"]
+	];
+
+    Feather_OnSave = function(id, url) {
+        var e = document.getElementById(id);
+        e.src = url;
+        aviaryeditor_close();
+    }
+
+    Feather_OnLoad = function() {
+        _featherLoaded = true;
+    }
+
+    function launchEditor(imageid) {
+        if (_featherLoaded) {
+            var src = document.getElementById(imageid).src;
+            aviaryeditor(imageid, src);
+        }
+    }
+</script>
+<script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
+
+<!-- End Generated Code -- Don't Copy Below This Line -->
+
+<img id="test" src="http://jrselfdevblog.com/wp-content/uploads/2009/06/Beaches-Blue-Sky.jpg"/>
+<p><input type="image" src="http://jrselfdevblog.com/wp-content/uploads/2009/06/Beaches-Blue-Sky.jpg" value="Edit photo" onclick="launchEditor('test'); return false;" /></p>
