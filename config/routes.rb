@@ -1,5 +1,7 @@
 Adslapme::Application.routes.draw do
 
+  resources :albums
+
   resources :pictures do
 	  resources :comments
   end

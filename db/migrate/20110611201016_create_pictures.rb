@@ -1,8 +1,10 @@
 class CreatePictures < ActiveRecord::Migration
   def self.up
     create_table :pictures do |t|
-      t.string :faceid
-      t.string :url
+      t.string :uid
+      t.string :thumb_url
+      t.string :source_url
+      t.string :album_id
 
       t.timestamps
     end

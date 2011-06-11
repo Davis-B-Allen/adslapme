@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(:version => 20110611201659) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.string   "faceid"
-    t.string   "url"
+    t.string   "uid"
+    t.string   "thumb_url"
+    t.string   "source_url"
+    t.string   "album_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
