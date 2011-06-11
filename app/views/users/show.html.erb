@@ -3,7 +3,7 @@
 
     Feather_Theme = 'bluesky';
     Feather_EditOptions = 'all';
-    Feather_OpenType = 'lightbox';
+    Feather_OpenType = 'inject';
     Feather_CropSizes = '320x240,640x480,800x600,1280x1024';
 
 	Feather_Stickers =
@@ -61,6 +61,15 @@
 <%= link_to 'Back', users_path %>
 <br/>
 <%= image_tag("#{@user.facebook_profile_url}", :id => 'test') %>
+
+<%= @albums.each do |a|%>
+
+<p>
+  <%= a['name'] %>
+  <!-- <%= image_tag("#{@graph.get_}") %> -->
+</p>
+
+<% end %>
 
 
 <p>

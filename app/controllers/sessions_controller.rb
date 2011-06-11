@@ -17,19 +17,22 @@ class SessionsController < ApplicationController
     @graph = Koala::Facebook::GraphAPI.new(facebook_token)
     profile = @graph.get_object("me")
     uid = profile['id']
+    
     debugger
-
-    puts "#{uid}"
 
     user = User.find_by_uid(uid)
 
     if user
       session[:uid] = uid
+      user.facebook_token = facebook_token
+      user.save
       redirect_to user_path(user)
     else
-      @user = User.create(:uid => profile['id'], :first_name => profile['first_name'], :last_name => profile['last_name'], :name => profile['name'])
+      user = User.new(:uid => profile['id'], :first_name => profile['first_name'], :last_name => profile['last_name'], :name => profile['name'])
+      user.facebook_token = facebook_token
+      user.save
       session[:uid] = uid
-      redirect_to root_path
+      redirect_to user_path(user)
     end
   end
 
