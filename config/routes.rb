@@ -1,5 +1,9 @@
 Adslapme::Application.routes.draw do
 
+  resources :pictures do
+	  resources :comments
+  end
+
   resources :users
 
   match '/contact', :to => 'pages#contact'

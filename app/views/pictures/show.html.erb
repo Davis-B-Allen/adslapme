@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Facebook Id:</b>
+  <%= @picture.faceid %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <img src="<%= @picture.url %>" alt="Picture" />
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @picture.tags.map { |t| t.name }.join(", ") %>
+</p
+
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Back', pictures_path %>
