@@ -68,14 +68,9 @@
 </p>
 
 
-<%= @pic_url_array.each do |a|%>
+<%= link_to "Import facebook photos", import_facebook_photos_albums_path %>
 
-<p>
-  <%= a %>
-  <%= image_tag("#{a}") %>
-</p>
 
-<% end %>
 
 
 

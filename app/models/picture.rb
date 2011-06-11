@@ -1,6 +1,7 @@
 class Picture < ActiveRecord::Base
-	validates :faceid, :presence => true
-	validates :url, :presence => true
+  validates_uniqueness_of :uid
+
+  belongs_to :album
 
 	has_many :tags
 	accepts_nested_attributes_for :tags, :allow_destroy => :true,

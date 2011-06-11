@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
 
     if user
       session[:uid] = uid
+      session[:user_id] = user.id
       user.facebook_token = facebook_token
       user.save
       redirect_to user_path(user)
@@ -32,6 +33,7 @@ class SessionsController < ApplicationController
       user.facebook_token = facebook_token
       user.save
       session[:uid] = uid
+      session[:user_id] = user.id
       redirect_to user_path(user)
     end
   end

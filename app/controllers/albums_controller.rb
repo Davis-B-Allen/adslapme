@@ -2,12 +2,32 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.xml
   def index
-    @albums = Album.all
+    @albums = current_user.albums
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @albums }
     end
+  end
+  
+  def import_facebook_photos
+    
+    @graph = current_user.facebook_graph
+
+    @albums = @graph.get_connections("me", "albums")
+
+    @albums.each do |a|
+      album = current_user.albums.build(:uid => a["id"], :cover_photo_id => a["cover_photo"])
+      album.save
+      @pictures = @graph.get_connections(a["id"], "photos")
+      @pictures.each do |p|
+        picture = album.pictures.build(:uid => p["id"], :thumb_url => p["picture"], :source_url => p["source"])
+        picture.save
+      end
+    end
+    
+    redirect_to albums_path
+
   end
 
   # GET /albums/1
