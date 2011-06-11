@@ -14,8 +14,7 @@ class SessionsController < ApplicationController
     code = params[:code]
     @oauth = Koala::Facebook::OAuth.new(Settings.facebook.app_id, Settings.facebook.app_secret, "#{Settings.app_url}/sessions/facebook_session_create")
     facebook_token = @oauth.get_access_token(code)
-    graph = Koala::Facebook::GraphAPI.new(facebook_token)
-    puts "#{facebook_token}"
+    @graph = Koala::Facebook::GraphAPI.new(facebook_token)
     
     redirect_to root_path
   end
