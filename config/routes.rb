@@ -5,6 +5,12 @@ Adslapme::Application.routes.draw do
 
   root :to => 'pages#home'
 
+  resources :sessions, :only => [:new, :create] do
+    collection do
+      get :facebook_session_create
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

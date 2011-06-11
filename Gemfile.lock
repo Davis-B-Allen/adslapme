@@ -169,6 +169,7 @@ GEM
       archive-tar-minitar (>= 0.5.2)
     rubyntlm (0.1.1)
     sequel (3.20.0)
+    settingslogic (2.0.6)
     simple_form (1.4.0)
     sinatra (1.0)
       rack (>= 1.0)
@@ -210,6 +211,7 @@ DEPENDENCIES
   rspec (= 2.5.0)
   rspec-rails (= 2.5.0)
   ruby-debug19
+  settingslogic
   simple_form
   sqlite3-ruby
   taps (>= 0.3.20)
