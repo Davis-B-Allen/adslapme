@@ -2,9 +2,11 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.7'
 
+gem 'heroku'
+gem 'omniauth'
+
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'will_paginate', '3.0.pre2'
-gem 'ruby-debug19'
 gem 'awesome_print'
 
 gem 'haml'
@@ -24,6 +26,10 @@ group :test do
   gem 'rspec', '2.5.0'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '1.0'
+end
+
+group :development, :test do
+  gem 'ruby-debug19'
 end
 
 # Use unicorn as the web server
