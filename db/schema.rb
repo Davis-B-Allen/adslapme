@@ -35,15 +35,6 @@ ActiveRecord::Schema.define(:version => 20110611201659) do
     t.datetime "updated_at"
   end
 
-  create_table "galleries", :force => true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.integer  "width"
-    t.integer  "height"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", :force => true do |t|
     t.integer  "uid"
     t.string   "first_name"
