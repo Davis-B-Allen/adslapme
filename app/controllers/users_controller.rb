@@ -14,11 +14,18 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user }
+    @graph = Koala::Facebook::GraphAPI.new(@user.facebook_token)
+    
+    @albums = @graph.get_connections("me", "albums")
+    
+    @pic_url_array = []
+    @albums.each do |a|
+      photos = @graph.get_connections(a['id'], "photos")
+      photos.each do |p| 
+        @pic_url_array << p['picture']
+      end
     end
+    # debugger
   end
 
   # GET /users/new

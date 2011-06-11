@@ -3,7 +3,7 @@
 
     Feather_Theme = 'bluesky';
     Feather_EditOptions = 'all';
-    Feather_OpenType = 'lightbox';
+    Feather_OpenType = 'inject';
     Feather_CropSizes = '320x240,640x480,800x600,1280x1024';
 
 	Feather_Stickers =
@@ -66,6 +66,17 @@
 <p>
   <input type="image" src=<%= "#{@user.facebook_profile_url}"%> value="Edit photo" onclick="launchEditor('test'); return false;" />
 </p>
+
+
+<%= @pic_url_array.each do |a|%>
+
+<p>
+  <%= a %>
+  <%= image_tag("#{a}") %>
+</p>
+
+<% end %>
+
 
 
 
