@@ -62,19 +62,21 @@
 <br/>
 <%= image_tag("#{@user.facebook_profile_url}", :id => 'test') %>
 
-<%= @albums.each do |a|%>
-
-<p>
-  <%= a['name'] %>
-  <!-- <%= image_tag("#{@graph.get_}") %> -->
-</p>
-
-<% end %>
-
 
 <p>
   <input type="image" src=<%= "#{@user.facebook_profile_url}"%> value="Edit photo" onclick="launchEditor('test'); return false;" />
 </p>
+
+
+<%= @pic_url_array.each do |a|%>
+
+<p>
+  <%= a %>
+  <%= image_tag("#{a}") %>
+</p>
+
+<% end %>
+
 
 
 

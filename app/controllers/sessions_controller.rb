@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     profile = @graph.get_object("me")
     uid = profile['id']
     
-    debugger
+    # debugger
 
     user = User.find_by_uid(uid)
 
