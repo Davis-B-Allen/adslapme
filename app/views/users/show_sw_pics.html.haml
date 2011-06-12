@@ -1,5 +1,6 @@
 #content
+  = link_to "Back To Home", root_path
   - @pics.each do |p|
     - if p
       %p
-        = image_tag(p)
+        = image_tag(p, :style => "display:block; margin-left:auto; margin-right:auto")

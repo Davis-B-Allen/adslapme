@@ -101,6 +101,9 @@
   %p
     %b Name:
     = @user.name
-  = image_tag("#{@user.temp_pic_url}", :id => 'test')
-  %p
-    <input type="button" src=#{"#{@user.facebook_profile_url}"} value="Edit photo" onclick="launchEditor('test'); return false;" />
+    %br
+    = link_to "Back To Home", root_path
+  = image_tag("#{@user.temp_pic_url}", :id => 'test', :style => "display:block; margin-left:auto; margin-right:auto")
+  #button
+    %p
+      <input type="button" id="edit_photo_button" src=#{"#{@user.facebook_profile_url}"} value="Edit photo" onclick="launchEditor('test'); return false;" />
