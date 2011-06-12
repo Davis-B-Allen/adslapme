@@ -1,7 +1,7 @@
 # app/config/application.yml
 
 development: &development
-  app_url: http://46ps.localtunnel.com
+  app_url: http://53an.localtunnel.com
   facebook:
     app_id: 103530109716629
     api_key: fdc338d2d152c7791fda61b013fa840d

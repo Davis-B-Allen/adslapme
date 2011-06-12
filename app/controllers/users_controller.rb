@@ -11,10 +11,16 @@ class UsersController < ApplicationController
   end
   
   def submit_pic
+    @user = User.find(session[:user_id])
     @graph = current_user.facebook_graph
     @graph.put_wall_post("#{params[:msg]}: #{params[:url]}")
-    
+    @user.feather_link = params[:url]
+    @user.save
     redirect_to root_path
+  end
+  
+  def show_sw_pics
+    @pics = User.all.map(&:feather_link)
   end
 
   # GET /users/1
