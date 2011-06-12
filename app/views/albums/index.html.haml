@@ -1,0 +1,40 @@
+:javascript
+  var _featherLoaded = false;
+
+  Feather_Theme = 'bluesky';
+  Feather_EditOptions = 'all';
+  Feather_OpenType = 'lightbox';
+  Feather_MaxSize = '480';
+  Feather_CropSizes = '320x240,640x480,800x600,1280x1024';
+
+   Feather_Stickers = [ ["http://www.emoticonswallpapers.com/avatar/logos/Doritos.gif", "http://www.emoticonswallpapers.com/avatar/logos/Doritos.gif"] ];
+
+  Feather_OnSave = function(id, url) {
+      aviaryeditor_close();
+      window.location = "#{Settings.app_url}/submit_pic/?url=" + url
+  }
+
+  Feather_OnLoad = function() {
+      _featherLoaded = true;
+  }
+
+  function launchEditor(imageid, src) {
+        if (_featherLoaded) {
+            aviaryeditor(imageid, src);
+        }
+    }
+%script{:src => "http://feather.aviary.com/js/feather.js", :type => "text/javascript"}
+%h1 Listing albums
+- @pictures.each do |p|
+  %p
+    <input type = "image" src=#{p.thumb_url} value="Edit photo" onclick="launchEditor(this, '#{"#{p.source_url}"}'); return false;" />
+%table
+  - @albums.each do |album|
+    %tr
+      %td= album.uid
+      %td= album.user_id
+      %td= album.cover_photo_id
+      %td= link_to 'Show', album
+      %td= link_to 'Edit', edit_album_path(album)
+      %td= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete
+= link_to 'New Album', new_album_path

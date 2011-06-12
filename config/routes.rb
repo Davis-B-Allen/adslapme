@@ -1,7 +1,20 @@
 Adslapme::Application.routes.draw do
 
+
+
+  resources :users
+  resources :albums do
+    collection do
+      get :import_facebook_photos
+    end
+  end
+  resources :pictures
+
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
+  
+  match '/submit_pic',  :to => 'users#submit_pic'
+  
 
   root :to => 'pages#home'
 
