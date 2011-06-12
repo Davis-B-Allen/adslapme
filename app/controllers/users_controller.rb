@@ -22,6 +22,10 @@ class UsersController < ApplicationController
   def show
 
     @user = User.find(params[:id])
+    if session[:user_id] != @user.id
+      flash[:notice] = "Please log in"
+      redirect_to root_path
+    end
     # @graph = Koala::Facebook::GraphAPI.new(@user.facebook_token)
     # 
     # @albums = @graph.get_connections("me", "albums")

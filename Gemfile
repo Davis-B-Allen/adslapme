@@ -8,6 +8,8 @@ gem 'koala'
 
 gem 'settingslogic'
 
+gem 'rake', '0.8.7'
+
 gem 'sqlite3-ruby', '1.3.2', :group => :development
 gem 'will_paginate', '3.0.pre2'
 gem 'awesome_print'
