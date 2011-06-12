@@ -14,6 +14,7 @@ Adslapme::Application.routes.draw do
   match '/about',   :to => 'pages#about'
   
   match '/submit_pic',  :to => 'users#submit_pic'
+  match '/capture_pic',  :to => 'users#capture_pic'
   match '/startup_weekend',  :to => 'users#show_sw_pics'
   
 
