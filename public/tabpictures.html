@@ -1,0 +1,75 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="description" content="Product placement: it's not just for movies anymore" />
+<title>AdSlap!It</title>
+<link href="adslapstyle.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+function chooseAlbum(id) {
+	var count=1;
+
+	while (count < 5) {
+		if (id == count) {
+			document.getElementById("Album_"+count).style.display = 'block';
+		}
+		else {
+			document.getElementById("Album_"+count).style.display = 'none';
+		}
+		count = count + 1;
+	}
+	document.getElementById("Album_"+1).style.display = 'none';
+
+}
+</script>
+</head>
+<body>
+<div id="content">
+	<div id="header">
+		<div id="title">
+			<div id="logo">
+				<img src="/images/logo.png" alt="adslapit logo" height="100" width="100" />
+			</div>
+			<img src="/images/title.png" alt="AdSlap!It" />
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="/index.html">MySlaps</a></li>
+				<li><a href="/example.html">Examples</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="main">
+		<div id="main">
+		<ul id="maintitle">
+			<h2>Welcome to AdSlapIt!</h2>
+		</div>
+			<li><a href="#" onclick="chooseAlbum(1);">Album 5</a></li>
+			<li><a href="#" onclick="chooseAlbum(2);">Album 11</a></li>
+			<li><a href="#" onclick="chooseAlbum(3);">Album 23</a></li>
+		</ul>
+		<div id="Album_1">
+			Normally a lot of pictures would go here.  Not this time.
+		</div>
+		<div id="Album_2">
+			Simulation of tables on the third one
+		</div>
+		<div id="Album_3">
+			<table border="1">
+			<tr>
+			<td>Pic 1</td><td> Pic 2</td>
+			</tr>
+			<tr>
+			<td>Pic 1</td><td> Pic 2</td>
+			</tr>
+			</table>
+		</div>
+		<script language="JavaScript"> chooseAlbum(1); </script>
+	</div>
+	<div id="footer">
+		Copyright 2011  AdSlap!It
+	</div>
+</div>
+</body>
+</html>
