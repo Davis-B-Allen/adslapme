@@ -1,0 +1,102 @@
+:javascript
+  var _featherLoaded = false;
+  
+  Feather_Theme = 'bluesky';
+  Feather_EditOptions = 'all';
+  Feather_OpenType = 'lightbox';
+  Feather_CropSizes = '320x240,640x480,800x600,1280x1024';
+  
+  Feather_Stickers =
+  [
+  	["#{Settings.app_url}/stickers/500px-Underground.png","#{Settings.app_url}/stickers/500px-Underground.png"],
+  	["#{Settings.app_url}/stickers/apple.png","#{Settings.app_url}/stickers/apple.png"],
+  	["#{Settings.app_url}/stickers/arches.png","#{Settings.app_url}/stickers/arches.png"],
+  	["#{Settings.app_url}/stickers/arms.png","#{Settings.app_url}/stickers/arms.png"],
+  	["#{Settings.app_url}/stickers/Beer.png","#{Settings.app_url}/stickers/Beer.png"],
+  	["#{Settings.app_url}/stickers/burger shirt.png","#{Settings.app_url}/stickers/burger shirt.png"],
+  	["#{Settings.app_url}/stickers/cloud PNG.png","#{Settings.app_url}/stickers/cloud PNG.png"],
+  	["#{Settings.app_url}/stickers/Coco.png","#{Settings.app_url}/stickers/Coco.png"],
+  	["#{Settings.app_url}/stickers/diesel-t-shirt.png","#{Settings.app_url}/stickers/diesel-t-shirt.png"],
+  	["#{Settings.app_url}/stickers/FIreFOx.png","#{Settings.app_url}/stickers/FIreFOx.png"],
+  	["#{Settings.app_url}/stickers/ford-logo-png-picture-33413.png","#{Settings.app_url}/stickers/ford-logo-png-picture-33413.png"],
+  	["#{Settings.app_url}/stickers/FRIES.png","#{Settings.app_url}/stickers/FRIES.png"],
+  	["#{Settings.app_url}/stickers/GA.png","#{Settings.app_url}/stickers/GA.png"],
+  	["#{Settings.app_url}/stickers/gap1.png","#{Settings.app_url}/stickers/gap1.png"],
+  	["#{Settings.app_url}/stickers/google.png","#{Settings.app_url}/stickers/google.png"],
+  	["#{Settings.app_url}/stickers/Gucci.png","#{Settings.app_url}/stickers/Gucci.png"],
+  	["#{Settings.app_url}/stickers/handburger.png","#{Settings.app_url}/stickers/handburger.png"],
+  	["#{Settings.app_url}/stickers/heineken-keg-can.jpg","#{Settings.app_url}/stickers/heineken-keg-can.jpg"],
+  	["#{Settings.app_url}/stickers/juicy T.png","#{Settings.app_url}/stickers/juicy T.png"],
+  	["#{Settings.app_url}/stickers/juicy.png","#{Settings.app_url}/stickers/juicy.png"],
+  	["#{Settings.app_url}/stickers/pearl2.png","#{Settings.app_url}/stickers/pearl2.png"],
+  	["#{Settings.app_url}/stickers/pepsi-bottle.png","#{Settings.app_url}/stickers/pepsi-bottle.png"],
+  	["#{Settings.app_url}/stickers/playboy-bunny.png","#{Settings.app_url}/stickers/playboy-bunny.png"],
+  	["#{Settings.app_url}/stickers/playboy.png","#{Settings.app_url}/stickers/playboy.png"],
+  	["#{Settings.app_url}/stickers/rock.png","#{Settings.app_url}/stickers/rock.png"],
+  	["#{Settings.app_url}/stickers/samsung.png","#{Settings.app_url}/stickers/samsung.png"],
+  	["#{Settings.app_url}/stickers/sbux2.png","#{Settings.app_url}/stickers/sbux2.png"],
+  	["#{Settings.app_url}/stickers/scarf.png","#{Settings.app_url}/stickers/scarf.png"],
+  	["#{Settings.app_url}/stickers/Screen shot 2011-06-11 at 7.57.36 PM.png","#{Settings.app_url}/stickers/Screen shot 2011-06-11 at 7.57.36 PM.png"],
+  	["#{Settings.app_url}/stickers/snuggie-small.png","#{Settings.app_url}/stickers/snuggie-small.png"],
+  	["#{Settings.app_url}/stickers/speechbbl_crclR.png","#{Settings.app_url}/stickers/speechbbl_crclR.png"],
+  	["#{Settings.app_url}/stickers/speechbbl_rctnglL.png","#{Settings.app_url}/stickers/speechbbl_rctnglL.png"],
+  	["#{Settings.app_url}/stickers/speechbbl_thought.png","#{Settings.app_url}/stickers/speechbbl_thought.png"],
+  	["#{Settings.app_url}/stickers/starbucks.png","#{Settings.app_url}/stickers/starbucks.png"],
+  	["#{Settings.app_url}/stickers/startup weekend.png","#{Settings.app_url}/stickers/startup weekend.png"],
+  	["#{Settings.app_url}/stickers/summer hat.png","#{Settings.app_url}/stickers/summer hat.png"],
+  	["#{Settings.app_url}/stickers/wrapper.png","#{Settings.app_url}/stickers/wrapper.png"],
+  	["#{Settings.app_url}/stickers/yahoo.png","#{Settings.app_url}/stickers/yahoo.png"]
+  ];
+  
+  Feather_OnSave = function(id, url) {
+      var e = document.getElementById(id);
+      e.src = url;
+      aviaryeditor_close();
+      show_prompt(url)
+      
+  }
+  
+  Feather_OnLoad = function() {
+      _featherLoaded = true;
+  }
+  
+  function show_confirm(url)
+  {
+  var r=confirm("Post saved photo to your facebook feed?");
+  if (r==true)
+    {
+    window.location = "#{Settings.app_url}/submit_pic/?url=" + url;
+    }
+  else
+    {
+    window.location = url;
+    }
+  }
+  
+  function show_prompt(url)
+  {
+  var msg=prompt("To post your adslap to your facebook feed with a custom message, enter the message below and hit OK!");
+  if (msg!=null && msg!="")
+    {
+    window.location = "#{Settings.app_url}/submit_pic/?url=" + url + "&msg=" + msg;
+    }
+  else
+    {
+    window.location = url;
+    }  
+  }
+  
+  function launchEditor(imageid) {
+      if (_featherLoaded) {
+          var src = document.getElementById(imageid).src;
+          aviaryeditor(imageid, src);
+      }
+  }
+%script{:src => "http://feather.aviary.com/js/feather.js", :type => "text/javascript"}
+%p#notice= notice
+%p
+  %b Name:
+  = @user.name
+= image_tag("#{@user.temp_pic_url}", :id => 'test')
+%p
+  <input type="button" src=#{"#{@user.facebook_profile_url}"} value="Edit photo" onclick="launchEditor('test'); return false;" />

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   
   def submit_pic
     @graph = current_user.facebook_graph
-    @graph.put_wall_post("#{params[:url]}")
+    @graph.put_wall_post("#{params[:msg]}: #{params[:url]}")
     
     redirect_to root_path
   end
