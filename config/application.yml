@@ -11,10 +11,10 @@ development: &development
 production: &production
   app_url: http://adslapme.heroku.com/
   facebook:
-    app_id: 103530109716629
-    api_key: fdc338d2d152c7791fda61b013fa840d
-    app_secret: 8e9f233a2b27f508ae24ca0b58c2db2a
-    app_name: urtvdev
+    app_id: 228355057176994
+    api_key: 3906ea7000762b9557da19b1cfe9774a
+    app_secret: cfeaa3dc0e9a0922e26978754bc8013b
+    app_name: adslapme
 
 # development: &development
 #   app_url: http://4qgf.localtunnel.com
