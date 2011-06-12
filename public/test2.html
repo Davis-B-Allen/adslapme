@@ -10,17 +10,20 @@
 	{
 		document.write('<style id="tmpStyle" type="text/css">#pic {-moz-opacity:0.00;filter:alpha(opacity=0);opacity:0;-khtml-opacity:0;}<\/style>')
 		var objG;
-		var degree = 30;
+		var _startDegree = 40;
+		var degree = _startDegree;
 		var fadeAssist = 0;
 		var imgArray = [
-						"http://4.bp.blogspot.com/_eHYp1wJ7gbU/SavAEMyiDxI/AAAAAAAAABs/8ChX3IoRqO0/S1600-R/blue+sky.jpg",
-						 "http://jrselfdevblog.com/wp-content/uploads/2009/06/Beaches-Blue-Sky.jpg",
-						 "http://images2.layoutsparks.com/1/95794/absolute-police-blue-sky-31000.jpg"
+						"images/woman1.jpg",
+						"images/woman2.jpg",
+						"images/woman3.jpg",
+						"images/woman4.jpg",
+						"images/woman5.jpg"
 					   ];
 		var currImgIdx = 0;
 	}
 
-	function fadepic(obj)
+	function fadeInPic(obj)
 	{
 		objG=obj
 		if (!document.getElementById&&!document.all) return;
@@ -38,28 +41,60 @@
 				objG.style.opacity=degree/101
 			else
 				tS.disabled=true
-			setTimeout("fadepic(objG)", 50);
+			setTimeout("fadeInPic(objG)", 50);
 		}
 		else
+		{
 		tS.disabled=true
+			setTimeout("fadeOutPic(objG)", 2000);
+		}
+		//tS.disabled=true
 	}
+
+	function fadeOutPic(obj)
+	{
+		objG=obj
+		if (!document.getElementById&&!document.all) return;
+		var tS=document.all? document.all['tmpStyle'] : document.getElementById('tmpStyle')
+		if (degree>_startDegree)
+		{
+			degree-=5
+			if (objG.filters&&objG.filters[0]&&fadeAssist)
+				fadeAssist(objG, degree)
+			else if (typeof objG.style.MozOpacity=='string')
+				objG.style.MozOpacity=degree/101
+			else if (typeof objG.style.KhtmlOpacity=='string')
+				objG.style.KhtmlOpacity=degree/100
+			else if (typeof objG.style.opacity=='string'&&!objG.filters)
+				objG.style.opacity=degree/101
+			else
+				tS.disabled=true
+			setTimeout("fadeOutPic(objG)", 50);
+		}
+		else
+		{
+		tS.disabled=true
+			changeImage('pic');
+		}
+		//tS.disabled=true
+	}
+
 
 	function changeImage(id)
 	{
 		setTimeout("changeImage(id)", 3000);
 		currImgIdx++;
 		if(currImgIdx >= imgArray.length) currImgIdx = 0;
-		degree = 30;
+		degree = _startDegree;
 		fadeAssist = 0;
 		var picImg = document.getElementById(id);
 		picImg.src = imgArray[currImgIdx];
-		fadepic(id);
+		fadeInPic(id);
 	}
 
 	function loadFirst(id)
 	{
-		setTimeout("changeImage('pic')", 3000);
-		fadepic(id);
+		fadeInPic(id);
 	}
 
 </script>
@@ -67,6 +102,6 @@
 
 </head>
 <body>
-<img id="pic" onload="loadFirst(this)" src="http://4.bp.blogspot.com/_eHYp1wJ7gbU/SavAEMyiDxI/AAAAAAAAABs/8ChX3IoRqO0/S1600-R/blue+sky.jpg">
+<img id="pic" width="300" height="480" onload="loadFirst(this)" src="images/woman1.jpg">
 </body>
 </html>
