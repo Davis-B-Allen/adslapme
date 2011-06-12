@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
 <head>
@@ -18,7 +17,6 @@
 						"images/woman1.jpg",
 						"images/woman2.jpg",
 						"images/woman3.jpg",
-						"images/woman4.jpg",
 						"images/woman5.jpg"
 					   ];
 		var currImgIdx = 0;
@@ -106,41 +104,3 @@
 <img id="pic" width="300" height="480" onload="loadFirst(this)" src="images/woman1.jpg">
 </body>
 </html>
-=======
-<script type="text/javascript">
-    var _featherLoaded = false;
-
-    Feather_Theme = 'bluesky';
-    Feather_EditOptions = 'stickers';
-    Feather_OpenType = 'lightbox';
-    Feather_MaxSize = '480';
-    Feather_CropSizes = '320x240,640x480,800x600,1280x1024';
-
-	Feather_Stickers =
-	[
-		  			["http://www.emoticonswallpapers.com/avatar/logos/Doritos.gif", "http://www.emoticonswallpapers.com/avatar/logos/Doritos.gif"]
-	];
-
-    Feather_OnSave = function(id, url) {
-        //var e = document.getElementById(id);
-        //e.src = url;
-        aviaryeditor_close();
-    }
-
-    Feather_OnLoad = function() {
-        _featherLoaded = true;
-    }
-
-    function launchEditor(imageid, src) {
-        if (_featherLoaded) {
-            aviaryeditor(imageid, src);
-        }
-    }
-</script>
-<script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
-
-
-<h1>Listing albums</h1>
-
-<p><input type="image" src="http://jrselfdevblog.com/wp-content/uploads/2009/06/Beaches-Blue-Sky.jpg" value="Edit photo" onclick="launchEditor(this, 'http://jrselfdevblog.com/wp-content/uploads/2009/06/Beaches-Blue-Sky.jpg'); return false;" /></p>
->>>>>>> 664792eb2f791ad5dd8be1712d6333a6a5470c5f
