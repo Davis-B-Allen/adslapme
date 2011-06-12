@@ -93,10 +93,11 @@
       }
   }
 %script{:src => "http://feather.aviary.com/js/feather.js", :type => "text/javascript"}
-%p#notice= notice
-%p
-  %b Name:
-  = @user.name
-= image_tag("#{@user.temp_pic_url}", :id => 'test')
-%p
-  <input type="button" src=#{"#{@user.facebook_profile_url}"} value="Edit photo" onclick="launchEditor('test'); return false;" />
+#content
+  %p#notice= notice
+  %p
+    %b Name:
+    = @user.name
+  = image_tag("#{@user.temp_pic_url}", :id => 'test')
+  %p
+    <input type="button" src=#{"#{@user.facebook_profile_url}"} value="Edit photo" onclick="launchEditor('test'); return false;" />

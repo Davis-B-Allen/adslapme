@@ -1,5 +1,5 @@
-- @pics.each do |p|
-  - if p
-    %p
-      = image_tag(p)
-    
+#content
+  - @pics.each do |p|
+    - if p
+      %p
+        = image_tag(p)
