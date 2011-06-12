@@ -2,8 +2,9 @@
     var _featherLoaded = false;
 
     Feather_Theme = 'bluesky';
-    Feather_EditOptions = 'all';
+    Feather_EditOptions = 'stickers';
     Feather_OpenType = 'lightbox';
+    Feather_MaxSize = '480';
     Feather_CropSizes = '320x240,640x480,800x600,1280x1024';
 
 	Feather_Stickers =
@@ -12,8 +13,8 @@
 	];
 
     Feather_OnSave = function(id, url) {
-        var e = document.getElementById(id);
-        e.src = url;
+        //var e = document.getElementById(id);
+        //e.src = url;
         aviaryeditor_close();
     }
 
@@ -21,16 +22,15 @@
         _featherLoaded = true;
     }
 
-    function launchEditor(imageid) {
+    function launchEditor(imageid, src) {
         if (_featherLoaded) {
-            var src = document.getElementById(imageid).src;
             aviaryeditor(imageid, src);
         }
     }
 </script>
 <script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
 
-<!-- End Generated Code -- Don't Copy Below This Line -->
 
-<img id="test" src="http://a3.sphotos.ak.fbcdn.net/hphotos-ak-ash2/74158_818452916767_13619618_45775959_8077791_n.jpg"/>
-<p><input type="image" src="http://photos-c.ak.fbcdn.net/hphotos-ak-ash2/74158_818452916767_13619618_45775959_8077791_s.jpg" value="Edit photo" onclick="launchEditor('test'); return false;" /></p>
+<h1>Listing albums</h1>
+
+<p><input type="image" src="http://jrselfdevblog.com/wp-content/uploads/2009/06/Beaches-Blue-Sky.jpg" value="Edit photo" onclick="launchEditor(this, 'http://jrselfdevblog.com/wp-content/uploads/2009/06/Beaches-Blue-Sky.jpg'); return false;" /></p>

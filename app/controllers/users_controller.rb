@@ -9,6 +9,13 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @users }
     end
   end
+  
+  def submit_pic
+    @graph = current_user.facebook_graph
+    @graph.put_wall_post("#{params[:url]}")
+    
+    redirect_to root_path
+  end
 
   # GET /users/1
   # GET /users/1.xml

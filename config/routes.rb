@@ -12,6 +12,9 @@ Adslapme::Application.routes.draw do
 
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
+  
+  match '/submit_pic',  :to => 'users#submit_pic'
+  
 
   root :to => 'pages#home'
 

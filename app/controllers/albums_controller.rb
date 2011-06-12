@@ -3,7 +3,10 @@ class AlbumsController < ApplicationController
   # GET /albums.xml
   def index
     @albums = current_user.albums
-
+    @album = current_user.albums.first
+    @pictures = @album.pictures
+    
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @albums }
@@ -33,7 +36,6 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.xml
   def show
-    @album = Album.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
