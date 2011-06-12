@@ -9,7 +9,7 @@ development: &development
     app_name: urtvdev
 
 production: &production
-  app_url: http://adslapme.heroku.com/
+  app_url: http://adslapit.com/
   facebook:
     app_id: 228355057176994
     api_key: 3906ea7000762b9557da19b1cfe9774a
