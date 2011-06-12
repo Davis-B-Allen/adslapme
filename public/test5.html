@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    var _featherLoaded = false;
+
+    Feather_APIKey = '61981a521bb1af54ce93785958230f62';
+    Feather_Theme = 'bluesky';
+<<<<<<< HEAD
+    Feather_EditOptions = 'stickers,text,drawing,crop,resize,rotate,flip';
+=======
+    Feather_EditOptions = 'all';
+>>>>>>> 664792eb2f791ad5dd8be1712d6333a6a5470c5f
+    Feather_OpenType = 'lightbox';
+    Feather_CropSizes = '320x240,640x480,800x600,1280x1024';
+    Feather_Stickers = [
+							[ 'stickers/apple.png', 'stickers/apple.png' ]
+					   ];
+
+    Feather_OnSave = function(id, url) {
+        var e = document.getElementById(id);
+        e.src = url;
+        aviaryeditor_close();
+    }
+
+    Feather_OnLoad = function() {
+        _featherLoaded = true;
+    }
+
+    function launchEditor(imageid) {
+        if (_featherLoaded) {
+            var src = document.getElementById(imageid).src;
+            aviaryeditor(imageid, src);
+        }
+    }
+</script>
+<script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
+
+<!-- End Generated Code -- Don't Copy Below This Line -->
+
+<<<<<<< HEAD
+<img id="1sdre" src="http://www.aviary.com/images/feather/sticker/hat_07.png"/>
+<p><input type="image" src="http://www.aviary.com/images/feather/sticker/hat_07.png" value="Edit photo" onclick="launchEditor('1sdre'); return false;" /></p>
+
+
+=======
+<img id="test" src="http://a3.sphotos.ak.fbcdn.net/hphotos-ak-ash2/74158_818452916767_13619618_45775959_8077791_n.jpg"/>
+<p><input type="image" src="http://photos-c.ak.fbcdn.net/hphotos-ak-ash2/74158_818452916767_13619618_45775959_8077791_s.jpg" value="Edit photo" onclick="launchEditor('test'); return false;" /></p>
+>>>>>>> 664792eb2f791ad5dd8be1712d6333a6a5470c5f

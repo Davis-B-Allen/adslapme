@@ -1,0 +1,146 @@
+<<<<<<< HEAD
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<script type="text/javascript">
+	if (document.all||document.getElementById)
+	{
+		document.write('<style id="tmpStyle" type="text/css">#pic {-moz-opacity:0.00;filter:alpha(opacity=0);opacity:0;-khtml-opacity:0;}<\/style>')
+		var objG;
+		var _startDegree = 40;
+		var degree = _startDegree;
+		var fadeAssist = 0;
+		var imgArray = [
+						"images/woman1.jpg",
+						"images/woman2.jpg",
+						"images/woman3.jpg",
+						"images/woman4.jpg",
+						"images/woman5.jpg"
+					   ];
+		var currImgIdx = 0;
+	}
+
+	function fadeInPic(obj)
+	{
+		objG=obj
+		if (!document.getElementById&&!document.all) return;
+		var tS=document.all? document.all['tmpStyle'] : document.getElementById('tmpStyle')
+		if (degree<100)
+		{
+			degree+=5
+			if (objG.filters&&objG.filters[0]&&fadeAssist)
+				fadeAssist(objG, degree)
+			else if (typeof objG.style.MozOpacity=='string')
+				objG.style.MozOpacity=degree/101
+			else if (typeof objG.style.KhtmlOpacity=='string')
+				objG.style.KhtmlOpacity=degree/100
+			else if (typeof objG.style.opacity=='string'&&!objG.filters)
+				objG.style.opacity=degree/101
+			else
+				tS.disabled=true
+			setTimeout("fadeInPic(objG)", 50);
+		}
+		else
+		{
+		tS.disabled=true
+			setTimeout("fadeOutPic(objG)", 2000);
+		}
+		//tS.disabled=true
+	}
+
+	function fadeOutPic(obj)
+	{
+		objG=obj
+		if (!document.getElementById&&!document.all) return;
+		var tS=document.all? document.all['tmpStyle'] : document.getElementById('tmpStyle')
+		if (degree>_startDegree)
+		{
+			degree-=5
+			if (objG.filters&&objG.filters[0]&&fadeAssist)
+				fadeAssist(objG, degree)
+			else if (typeof objG.style.MozOpacity=='string')
+				objG.style.MozOpacity=degree/101
+			else if (typeof objG.style.KhtmlOpacity=='string')
+				objG.style.KhtmlOpacity=degree/100
+			else if (typeof objG.style.opacity=='string'&&!objG.filters)
+				objG.style.opacity=degree/101
+			else
+				tS.disabled=true
+			setTimeout("fadeOutPic(objG)", 50);
+		}
+		else
+		{
+		tS.disabled=true
+			changeImage('pic');
+		}
+		//tS.disabled=true
+	}
+
+
+	function changeImage(id)
+	{
+		setTimeout("changeImage(id)", 3000);
+		currImgIdx++;
+		if(currImgIdx >= imgArray.length) currImgIdx = 0;
+		degree = _startDegree;
+		fadeAssist = 0;
+		var picImg = document.getElementById(id);
+		picImg.src = imgArray[currImgIdx];
+		fadeInPic(id);
+	}
+
+	function loadFirst(id)
+	{
+		fadeInPic(id);
+	}
+
+</script>
+
+
+</head>
+<body>
+<img id="pic" width="300" height="480" onload="loadFirst(this)" src="images/woman1.jpg">
+</body>
+</html>
+=======
+<script type="text/javascript">
+    var _featherLoaded = false;
+
+    Feather_Theme = 'bluesky';
+    Feather_EditOptions = 'stickers';
+    Feather_OpenType = 'lightbox';
+    Feather_MaxSize = '480';
+    Feather_CropSizes = '320x240,640x480,800x600,1280x1024';
+
+	Feather_Stickers =
+	[
+		  			["http://www.emoticonswallpapers.com/avatar/logos/Doritos.gif", "http://www.emoticonswallpapers.com/avatar/logos/Doritos.gif"]
+	];
+
+    Feather_OnSave = function(id, url) {
+        //var e = document.getElementById(id);
+        //e.src = url;
+        aviaryeditor_close();
+    }
+
+    Feather_OnLoad = function() {
+        _featherLoaded = true;
+    }
+
+    function launchEditor(imageid, src) {
+        if (_featherLoaded) {
+            aviaryeditor(imageid, src);
+        }
+    }
+</script>
+<script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
+
+
+<h1>Listing albums</h1>
+
+<p><input type="image" src="http://jrselfdevblog.com/wp-content/uploads/2009/06/Beaches-Blue-Sky.jpg" value="Edit photo" onclick="launchEditor(this, 'http://jrselfdevblog.com/wp-content/uploads/2009/06/Beaches-Blue-Sky.jpg'); return false;" /></p>
+>>>>>>> 664792eb2f791ad5dd8be1712d6333a6a5470c5f
